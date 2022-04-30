@@ -116,7 +116,8 @@ const Content = () => {
     }
   
     // eудаление
-    const handleCardDeleteItem = () => {
+    const handleCardDeleteItem = (event) => {
+      event.preventDefault();
       api.removeCard(cardDelete._id)
       .then(() => {
         setCards((state) => state.filter((c) => c._id !== cardDelete._id))
@@ -126,7 +127,6 @@ const Content = () => {
         console.log(`Ошибка при удалении карточки ${err}`)
       })
     }
-  
   
     useEffect(() => {
       const handleEsc = (e) => {
