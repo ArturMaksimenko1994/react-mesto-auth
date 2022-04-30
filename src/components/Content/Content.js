@@ -14,7 +14,7 @@ import api from './../../utils/api.js';
 
 const Content = () => {
 
-    const [cardDelete,setCardDelete] = useState("");
+    const [cardDelete,setCardDelete] = useState(null);
     const [cards, setCards] = useState([]);
     const [currentUser, setCurrentUser] = useState({});
     const [isOpenPopotDelete, setIsOpenPopotDelete] = useState(false);
