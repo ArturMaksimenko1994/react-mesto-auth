@@ -14,8 +14,9 @@ import api from './../../utils/api.js';
 
 const Content = () => {
 
-    const [cardDelete,setCardDelete] = useState(null);
     const [cards, setCards] = useState([]);
+
+    const [cardDelete,setCardDelete] = useState(null);
     const [currentUser, setCurrentUser] = useState({});
     const [isOpenPopotDelete, setIsOpenPopotDelete] = useState(false);
   
@@ -33,6 +34,14 @@ const Content = () => {
     const handleAddPlaceClick = () => {
       setIsAddPlacePopupOpen(true)
     }
+
+    const [isAddImagePopupOpen, setIsAddIamgePopupOpen] = useState(false);
+    const handleAddImageClick = () => {
+      setIsAddIamgePopupOpen(true)
+    }
+  
+    
+
   
     const [selectedCard, setSelectedCard] = useState(null);
     const handleCardClick = (card) => {
@@ -44,6 +53,7 @@ const Content = () => {
       setIsEditProfilePopupOpen(false);
       setIsAddPlacePopupOpen(false);
       setIsOpenPopotDelete(false);
+      setIsAddIamgePopupOpen(false);
       setSelectedCard(null);
     }
   
@@ -164,6 +174,7 @@ const Content = () => {
                 onEditProfile={handleEditProfileClick}
                 onEditAvatar={handleEditAvatarClick}
                 onAddPlace={handleAddPlaceClick}
+                onAddImage={handleAddImageClick}
                 onCardClick={handleCardClick}
                 onCardLike={handleCardLike}
                 onCardDelete={handleCardDelete} 
@@ -171,7 +182,7 @@ const Content = () => {
                       <PopupEdit isOpen={isEditProfilePopupOpen} onClose={closeAllPopups} onUpdateUser={handleUpdateUser} />
           <PopupAvatar isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} onUpdateAvatar={handleUpdateAvatar} />
           <PopupPlace isOpen={isAddPlacePopupOpen} onClose={closeAllPopups} onAddPlace={handleAddPlaceSubmit} />
-          <PopupImage card={selectedCard} onClose={closeAllPopups} />
+          <PopupImage isOpen={isAddImagePopupOpen} card={selectedCard} onClose={closeAllPopups} />
           <PopupWithForm isOpen={isOpenPopotDelete} onClose={closeAllPopups} onDeleteCard={handleCardDeleteItem} name="confirm-delition" title="Вы уверены?" buttonText="Да"> {/*подтверждение удаления*/}</PopupWithForm>
         </CurrentUserContext.Provider>
     );
