@@ -31,9 +31,3 @@ ___
 - Использован WebPack для хранения файлов и кроссбраузерности сайта.
 - Использование API
 - React JavaScript-библиотека 
-___
-
-## Ссылка на GitHub Pages:
-
-- ссылка на GitHub Pages
-https://arturmaksimenko1994.github.io/mesto-react/index.html
